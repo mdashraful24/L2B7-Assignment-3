@@ -75,3 +75,10 @@ SELECT * FROM Matches;
 SELECT * FROM Bookings;
 
 
+-- 7 SQL QUERIES
+-- =========================
+
+-- Query 1:
+SELECT match_id, fixture, ROUND(base_ticket_price) FROM matches
+WHERE tournament_category = 'Champions League' AND match_status = 'Available';
+
