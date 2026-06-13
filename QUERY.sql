@@ -98,3 +98,9 @@ INNER JOIN matches USING (match_id);
 -- Query 5:
 SELECT user_id, full_name, booking_id FROM users
 LEFT JOIN bookings USING (user_id);
+
+-- Query 6:
+SELECT booking_id, match_id, ROUND(total_cost) AS total_cost FROM bookings
+WHERE total_cost > (
+  SELECT AVG(total_cost) FROM bookings
+);
