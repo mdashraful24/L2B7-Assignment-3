@@ -95,3 +95,6 @@ SELECT booking_id, full_name, fixture, ROUND(total_cost) FROM bookings
 INNER JOIN users USING (user_id)
 INNER JOIN matches USING (match_id);
 
+-- Query 5:
+SELECT user_id, full_name, booking_id FROM users
+LEFT JOIN bookings USING (user_id);
