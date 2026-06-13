@@ -1,71 +1,173 @@
-# Football Ticket Booking System
+# 📘 Football Ticket Booking System
 
-## Overview
+## 📌 Overview
 
-This repository contains the SQL implementation for a Football Ticket Booking System. It includes database creation, table definitions, seeded sample data, and a set of example queries designed to demonstrate relational data retrieval, joins, filtering, and aggregation.
+This project implements a relational database system for a **Football Ticket Booking System**. It demonstrates core SQL concepts such as table design, relationships (PK/FK), joins, subqueries, filtering, and aggregation.
 
-## Database Schema
+The system manages:
 
-The system uses three core tables:
+* Users (Football fans & ticket managers)
+* Football matches
+* Ticket bookings
 
-- `Users`
-  - `user_id` (primary key)
-  - `full_name`
-  - `email`
-  - `role` (Ticket Manager or Football Fan)
-  - `phone_number`
-- `Matches`
-  - `match_id` (primary key)
-  - `fixture`
-  - `tournament_category`
-  - `base_ticket_price`
-  - `match_status` (Available, Selling Fast, Sold Out, Postponed)
-- `Bookings`
-  - `booking_id` (primary key)
-  - `user_id` (foreign key to `Users`)
-  - `match_id` (foreign key to `Matches`)
-  - `seat_number`
-  - `payment_status` (Pending, Confirmed, Cancelled, Refunded)
-  - `total_cost`
+---
 
-## Files
+## 🗂️ Database Schema
 
-- `QUERY.sql` — SQL script containing database creation, table definitions, seeded test data, and example queries.
-- `README.md` — This documentation file.
+The database consists of three main tables:
 
-## Setup Instructions
+### 👤 Users
 
-1. Open your SQL client or terminal connected to a PostgreSQL instance.
-2. Run the `QUERY.sql` script to create the `football` database and populate it with sample data.
+Stores all system users (fans and ticket managers).
 
-   Example using `psql`:
+* `user_id` (Primary Key)
+* `full_name`
+* `email` (Unique)
+* `role` (Football Fan / Ticket Manager)
+* `phone_number`
 
-   ```sql
-   \i QUERY.sql
-   ```
+---
 
-3. Verify the tables and sample data by running the provided `SELECT` statements.
+### ⚽ Matches
 
-## Key SQL Examples
+Stores football match details and ticket pricing.
 
-The script includes sample queries for common operations:
+* `match_id` (Primary Key)
+* `fixture` (Team vs Team)
+* `tournament_category`
+* `base_ticket_price`
+* `match_status` (Available, Selling Fast, Sold Out, Postponed)
 
-- Retrieving available Champions League matches with rounded ticket prices.
-- Finding users by name patterns.
-- Identifying incomplete bookings with missing payment status.
-- Joining `Bookings`, `Users`, and `Matches` to show complete booking details.
-- Listing all users with their bookings, including users without any bookings.
-- Comparing booking totals against the average booking cost.
-- Selecting the top two matches below the highest ticket price.
+---
 
-## ERD
+### 🎟️ Bookings
 
-A visual entity-relationship diagram is available here:
+Stores ticket booking transactions.
 
-https://drawsql.app/teams/md-ashraful-islam/diagrams/b7a3-football-ticket-booking-system
+* `booking_id` (Primary Key)
+* `user_id` (Foreign Key → Users.user_id)
+* `match_id` (Foreign Key → Matches.match_id)
+* `seat_number`
+* `payment_status` (Pending, Confirmed, Cancelled, Refunded)
+* `total_cost`
 
-## Notes
+---
 
-- The database schema includes data validation via `CHECK` constraints.
-- The sample data covers both confirmed and pending bookings, as well as sold out and available matches.
-- This project is suitable for learning SQL table relationships, joins, filtering, and aggregation.
+## 🔗 Relationships
+
+* **Users → Bookings**: One-to-Many
+  (One user can make multiple bookings)
+
+* **Matches → Bookings**: One-to-Many
+  (One match can have many bookings)
+
+* **Bookings** acts as a junction table linking users and matches.
+
+---
+
+## 📁 Project Files
+
+* `QUERY.sql` → SQL script containing:
+
+  * Database creation
+  * Table definitions
+  * Constraints (PK, FK, CHECK, UNIQUE)
+  * Sample data
+  * SQL queries (7 tasks)
+
+* `README.md` → Project documentation
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Create Database & Run Script
+
+Open PostgreSQL terminal or SQL client and run:
+
+```bash
+psql -U postgres -d football -f QUERY.sql
+```
+
+OR inside `psql`:
+
+```sql
+\i QUERY.sql
+```
+
+---
+
+### 2. Verify Tables
+
+Run:
+
+```sql
+SELECT * FROM Users;
+SELECT * FROM Matches;
+SELECT * FROM Bookings;
+```
+
+---
+
+## 🧠 Key SQL Features Used
+
+This project demonstrates:
+
+* `PRIMARY KEY` and `FOREIGN KEY` constraints
+* `UNIQUE` and `CHECK` constraints
+* `INNER JOIN`, `LEFT JOIN`
+* `WHERE`, `LIKE`, `ILIKE`
+* `COALESCE` for NULL handling
+* Subqueries with `AVG()` and `MAX()`
+* Sorting and filtering using `ORDER BY` and `LIMIT`
+
+---
+
+## 📊 Example Queries Included
+
+### 1. Available Champions League Matches
+
+Filters matches by tournament and status.
+
+### 2. User Search
+
+Find users using pattern matching (`ILIKE`).
+
+### 3. Null Payment Handling
+
+Replaces missing payment status with:
+
+> "Action Required"
+
+### 4. Booking Details Join
+
+Combines users, bookings, and matches.
+
+### 5. All Users with Bookings
+
+Includes users with no bookings using `LEFT JOIN`.
+
+### 6. Above Average Bookings
+
+Filters bookings above average cost.
+
+### 7. Top Expensive Matches
+
+Finds second and third highest ticket prices.
+
+---
+
+## 🧾 ERD (Entity Relationship Diagram)
+
+You can view the ERD here:
+
+👉 [https://drawsql.app/teams/md-ashraful-islam/diagrams/b7a3-football-ticket-booking-system](https://drawsql.app/teams/md-ashraful-islam/diagrams/b7a3-football-ticket-booking-system)
+
+---
+
+## 📝 Notes
+
+* The schema includes proper relational integrity using PK/FK constraints.
+* Data validation is enforced using `CHECK` constraints.
+* Sample data includes confirmed, pending, and NULL cases for testing SQL logic.
+* Designed for learning intermediate SQL and database modeling concepts.

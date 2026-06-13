@@ -79,7 +79,7 @@ SELECT * FROM Bookings;
 -- =========================
 
 -- Query 1:
-SELECT match_id, fixture, ROUND(base_ticket_price) as base_ticket_price FROM matches
+SELECT match_id, fixture, ROUND(base_ticket_price) AS base_ticket_price FROM matches
 WHERE tournament_category = 'Champions League' AND match_status = 'Available';
 
 -- Query 2:
@@ -91,7 +91,7 @@ SELECT booking_id, user_id, match_id, COALESCE(payment_status, 'Action Required'
 WHERE payment_status IS NULL;
 
 -- Query 4:
-SELECT booking_id, full_name, fixture, ROUND(total_cost) FROM bookings
+SELECT booking_id, full_name, fixture, ROUND(total_cost) AS total_cost FROM bookings
 INNER JOIN users USING (user_id)
 INNER JOIN matches USING (match_id);
 
