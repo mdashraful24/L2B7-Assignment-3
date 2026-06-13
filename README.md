@@ -67,7 +67,7 @@ Stores ticket booking transactions.
 
 ## 📁 Project Files
 
-* `QUERY.sql` → SQL script containing:
+* [QUERY.sql](./QUERY.sql) → SQL script containing:
 
   * Database creation
   * Table definitions
