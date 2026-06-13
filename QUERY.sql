@@ -104,3 +104,10 @@ SELECT booking_id, match_id, ROUND(total_cost) AS total_cost FROM bookings
 WHERE total_cost > (
   SELECT AVG(total_cost) FROM bookings
 );
+
+-- Query 7:
+SELECT match_id, fixture, round(base_ticket_price) FROM matches
+WHERE base_ticket_price < (
+  SELECT MAX(base_ticket_price) FROM matches
+) ORDER BY base_ticket_price DESC LIMIT 2;
+
