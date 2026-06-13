@@ -79,7 +79,7 @@ SELECT * FROM Bookings;
 -- =========================
 
 -- Query 1:
-SELECT match_id, fixture, ROUND(base_ticket_price) FROM matches
+SELECT match_id, fixture, ROUND(base_ticket_price) as base_ticket_price FROM matches
 WHERE tournament_category = 'Champions League' AND match_status = 'Available';
 
 -- Query 2:
@@ -106,7 +106,7 @@ WHERE total_cost > (
 );
 
 -- Query 7:
-SELECT match_id, fixture, round(base_ticket_price) FROM matches
+SELECT match_id, fixture, ROUND(base_ticket_price) as base_ticket_price FROM matches
 WHERE base_ticket_price < (
   SELECT MAX(base_ticket_price) FROM matches
 ) ORDER BY base_ticket_price DESC LIMIT 2;
