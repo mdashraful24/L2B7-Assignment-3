@@ -26,6 +26,8 @@ CREATE TABLE Matches (
     match_status VARCHAR(20) NOT NULL CHECK (match_status IN ('Available', 'Selling Fast', 'Sold Out', 'Postponed'))
 );
 
+-- BOOKINGS TABLE
+-- =========================
 CREATE TABLE Bookings (
     booking_id SERIAL PRIMARY KEY,
     user_id INT NOT NULL REFERENCES Users(user_id),
