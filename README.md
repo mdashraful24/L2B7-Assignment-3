@@ -125,35 +125,19 @@ This project demonstrates:
 
 ## 📊 Example Queries Included
 
-### 1. Available Champions League Matches
+# 1. Available Champions League Matches
 
-Filters matches by tournament and status.
+# 2. User Search
 
-### 2. User Search
+# 3. Null Payment Handling
 
-Find users using pattern matching (`ILIKE`).
+# 4. Booking Details Join
 
-### 3. Null Payment Handling
+# 5. All Users with Bookings
 
-Replaces missing payment status with:
+# 6. Above Average Bookings
 
-> "Action Required"
-
-### 4. Booking Details Join
-
-Combines users, bookings, and matches.
-
-### 5. All Users with Bookings
-
-Includes users with no bookings using `LEFT JOIN`.
-
-### 6. Above Average Bookings
-
-Filters bookings above average cost.
-
-### 7. Top Expensive Matches
-
-Finds second and third highest ticket prices.
+# 7. Top Expensive Matches
 
 ---
 
