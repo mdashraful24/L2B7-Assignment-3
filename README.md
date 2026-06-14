@@ -125,13 +125,13 @@ This project demonstrates:
 
 ## 📊 Example Queries Included
 
-#### 1. Available Champions League Matches
-#### 2. User Search
-#### 3. Null Payment Handling
-#### 4. Booking Details Join
-#### 5. All Users with Bookings
-#### 6. Above Average Bookings
-#### 7. Top Expensive Matches
+* Available Champions League Matches
+* User Search
+* Null Payment Handling
+* Booking Details Join
+* All Users with Bookings
+* Above Average Bookings
+* Top Expensive Matches
 
 ---
 
