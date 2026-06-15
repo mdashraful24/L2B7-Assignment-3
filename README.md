@@ -65,6 +65,14 @@ Stores ticket booking transactions.
 
 ---
 
+## 🧾 ERD (Entity Relationship Diagram)
+
+You can view the ERD here:
+
+👉 [https://drawsql.app/teams/md-ashraful-islam/diagrams/b7a3-football-ticket-booking-system](https://drawsql.app/teams/md-ashraful-islam/diagrams/b7a3-football-ticket-booking-system)
+
+---
+
 ## 📁 Project Files
 
 * [QUERY.sql](./QUERY.sql) → SQL script containing:
@@ -132,14 +140,6 @@ This project demonstrates:
 * All Users with Bookings
 * Above Average Bookings
 * Top Expensive Matches
-
----
-
-## 🧾 ERD (Entity Relationship Diagram)
-
-You can view the ERD here:
-
-👉 [https://drawsql.app/teams/md-ashraful-islam/diagrams/b7a3-football-ticket-booking-system](https://drawsql.app/teams/md-ashraful-islam/diagrams/b7a3-football-ticket-booking-system)
 
 ---
 
