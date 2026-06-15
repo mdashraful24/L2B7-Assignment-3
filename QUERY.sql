@@ -66,25 +66,6 @@ WHERE
   );
 
 
-SELECT
-  match_id,
-  fixture,
-  base_ticket_price
-FROM
-  Matches
-WHERE
-  base_ticket_price < (
-    SELECT
-      MAX(base_ticket_price)
-    FROM
-      Matches
-  )
-ORDER BY
-  base_ticket_price DESC
-LIMIT
-  2;
-
--- OR
 
 SELECT
   match_id,
